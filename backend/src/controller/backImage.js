@@ -7,6 +7,12 @@ module.exports = app => {
       });
       this.ctx.success(res);
     }
+    async getCurrent() {
+      const res = await this.ctx.service.backImage.getCurrent({
+        user: this.ctx.state.user.op,
+      });
+      this.ctx.success(res);
+    }
   }
 
   return BackImageController;

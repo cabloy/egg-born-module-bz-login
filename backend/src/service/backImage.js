@@ -27,6 +27,12 @@ module.exports = app => {
       // ok
       return { key, keyOld };
     }
+
+    async getCurrent({ user }) {
+      return await this.ctx.model.loginBackImage.get({
+        isCurrent: 1,
+      });
+    }
   }
 
   return BackImage;
