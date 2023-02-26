@@ -34,7 +34,7 @@ module.exports = app => {
               {
                 dataIndex: 'isCurrent',
                 title: 'IsCurrent',
-                align: 'left',
+                align: 'center',
                 component: {
                   module: 'bz-login',
                   name: 'listLayoutTableCellIsCurrent',
@@ -78,7 +78,7 @@ module.exports = app => {
   const layout = {
     atomName: 'LoginBackImage',
     atomStaticKey: 'layoutAtomListLoginBackImage',
-    atomRevision: 1,
+    atomRevision: 2,
     description: '',
     layoutTypeCode: 3,
     content: JSON.stringify(content),

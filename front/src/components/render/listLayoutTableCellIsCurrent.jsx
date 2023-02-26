@@ -20,9 +20,14 @@ export default {
     return {};
   },
   created() {},
-  methods: {},
+  methods: {
+    _renderCurrent() {
+      const { text } = this.info;
+      if (text === 0) return null;
+      return <f7-icon f7="::done"></f7-icon>;
+    },
+  },
   render() {
-    const { text } = this.info;
-    return <div class="eb-antdv-table-cell">{text}</div>;
+    return <div class="eb-antdv-table-cell">{this._renderCurrent()}</div>;
   },
 };

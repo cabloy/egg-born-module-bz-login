@@ -1,4 +1,5 @@
+const backImage = require('./service/backImage.js');
 module.exports = app => {
-  const services = {};
+  const services = { backImage };
   return services;
 };

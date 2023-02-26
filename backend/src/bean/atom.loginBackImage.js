@@ -31,6 +31,8 @@ module.exports = app => {
     }
 
     async write({ atomClass, target, key, item, options, user }) {
+      // check demo
+      this.ctx.bean.util.checkDemoForAtomWrite();
       // super
       await super.write({ atomClass, target, key, item, options, user });
       // update loginBackImage
@@ -45,6 +47,18 @@ module.exports = app => {
       await this.ctx.model.loginBackImage.delete({
         id: key.itemId,
       });
+    }
+
+    async checkRightAction({ atom, atomClass, action, stage, user, checkFlow }) {
+      // super
+      const res = await super.checkRightAction({ atom, atomClass, action, stage, user, checkFlow });
+      if (!res) return res;
+      if (atom.atomStage !== 1) return res;
+      if (action !== 101) return res;
+      // setCurrent
+      const item = await this.ctx.model.loginBackImage.get({ id: atom.itemId });
+      if (action === 101 && item.isCurrent === 0) return res;
+      return null;
     }
 
     _getMeta(item) {
