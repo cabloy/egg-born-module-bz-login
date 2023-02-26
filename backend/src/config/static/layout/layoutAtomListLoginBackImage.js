@@ -16,9 +16,29 @@ module.exports = app => {
                 },
               },
               {
-                dataIndex: 'description',
-                title: 'Description',
+                dataIndex: 'backImage',
+                title: 'BackImage',
+                align: 'center',
+                component: {
+                  module: 'a-baserender',
+                  name: 'renderTableCellImage',
+                  options: {
+                    props: {
+                      size: {
+                        height: 36,
+                      },
+                    },
+                  },
+                },
+              },
+              {
+                dataIndex: 'isCurrent',
+                title: 'IsCurrent',
                 align: 'left',
+                component: {
+                  module: 'bz-login',
+                  name: 'listLayoutTableCellIsCurrent',
+                },
               },
               {
                 dataIndex: 'userName',
@@ -58,7 +78,7 @@ module.exports = app => {
   const layout = {
     atomName: 'LoginBackImage',
     atomStaticKey: 'layoutAtomListLoginBackImage',
-    atomRevision: 0,
+    atomRevision: 1,
     description: '',
     layoutTypeCode: 3,
     content: JSON.stringify(content),

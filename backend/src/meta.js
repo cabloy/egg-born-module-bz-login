@@ -20,7 +20,7 @@ module.exports = app => {
             attachment: false,
             layout: {
               config: {
-                // atomList: 'layoutAtomListLoginBackImage',
+                atomList: 'layoutAtomListLoginBackImage',
               },
             },
           },

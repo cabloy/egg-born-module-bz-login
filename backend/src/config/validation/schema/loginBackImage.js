@@ -33,13 +33,7 @@ module.exports = app => {
   // loginBackImage search
   schemas.loginBackImageSearch = {
     type: 'object',
-    properties: {
-      description: {
-        type: 'string',
-        ebType: 'text',
-        ebTitle: 'Description',
-      },
-    },
+    properties: {},
   };
   return schemas;
 };

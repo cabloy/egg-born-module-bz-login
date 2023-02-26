@@ -1,8 +1,9 @@
-// const layoutAtomListLoginBackImage = require('./layout/layoutAtomListLoginBackImage.js');
+const layoutAtomListLoginBackImage = require('./layout/layoutAtomListLoginBackImage.js');
 
 module.exports = app => {
   const layouts = [
-    // layoutAtomListLoginBackImage(app),
+    //
+    layoutAtomListLoginBackImage(app),
   ];
   return layouts;
 };
