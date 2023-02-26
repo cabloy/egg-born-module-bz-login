@@ -11,7 +11,8 @@ module.exports = app => {
             deleted int(11) DEFAULT '0',
             iid int(11) DEFAULT '0',
             atomId int(11) DEFAULT '0',
-            description varchar(255) DEFAULT NULL,
+            backImage varchar(255) DEFAULT NULL,
+            isCurrent int(11) DEFAULT '0',
             PRIMARY KEY (id)
           )
         `;
@@ -23,14 +24,17 @@ module.exports = app => {
       if (options.version === 1) {
         // add role rights
         const roleRights = [
-          { roleName: 'authenticated', action: 'create' },
-          { roleName: 'authenticated', action: 'read', scopeNames: 0 },
-          { roleName: 'authenticated', action: 'write', scopeNames: 0 },
-          { roleName: 'authenticated', action: 'delete', scopeNames: 0 },
-          { roleName: 'authenticated', action: 'clone', scopeNames: 0 },
-          { roleName: 'authenticated', action: 'deleteBulk' },
-          { roleName: 'authenticated', action: 'exportBulk' },
+          { roleName: 'system', action: 'create' },
+          { roleName: 'system', action: 'read', scopeNames: 0 },
           { roleName: 'system', action: 'read', scopeNames: 'authenticated' },
+          { roleName: 'system', action: 'write', scopeNames: 0 },
+          { roleName: 'system', action: 'write', scopeNames: 'authenticated' },
+          { roleName: 'system', action: 'delete', scopeNames: 0 },
+          { roleName: 'system', action: 'delete', scopeNames: 'authenticated' },
+          // { roleName: 'system', action: 'clone', scopeNames: 0 },
+          // { roleName: 'system', action: 'clone', scopeNames: 'authenticated' },
+          { roleName: 'system', action: 'deleteBulk' },
+          // { roleName: 'system', action: 'exportBulk' },
         ];
         await this.ctx.bean.role.addRoleRightBatch({ atomClassName: 'loginBackImage', roleRights });
       }

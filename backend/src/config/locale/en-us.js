@@ -1,1 +1,3 @@
-module.exports = {};
+module.exports = {
+  LoginBackImages: 'Login Back Images',
+};

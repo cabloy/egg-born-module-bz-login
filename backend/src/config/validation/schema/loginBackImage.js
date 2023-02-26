@@ -10,10 +10,23 @@ module.exports = app => {
         ebTitle: 'Name',
         notEmpty: true,
       },
-      description: {
+      backImage: {
         type: 'string',
-        ebType: 'text',
-        ebTitle: 'Description',
+        ebType: 'image',
+        ebTitle: 'BackImage',
+        notEmpty: true,
+      },
+      isCurrent: {
+        // not set type
+        // type: 'number',
+        ebType: 'toggle',
+        ebTitle: 'IsCurrent',
+        ebReadOnly: true,
+        ebDisplay: {
+          host: {
+            stage: 'formal',
+          },
+        },
       },
     },
   };

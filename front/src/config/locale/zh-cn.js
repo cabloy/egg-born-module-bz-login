@@ -1,4 +1,4 @@
 export default {
-  Name: '名称',
-  Description: '描述',
+  BackImage: '背景图',
+  IsCurrent: '是否当前',
 };

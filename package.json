@@ -1,7 +1,7 @@
 {
   "name": "egg-born-module-bz-login",
   "version": "4.0.0",
-  "title": "BingZhu Login",
+  "title": "LoginBackImage",
   "eggBornModule": {
     "fileVersion": 1,
     "dependencies": {

@@ -1,4 +1,4 @@
 module.exports = {
-  'Create LoginBackImage': '新建LoginBackImage',
-  'LoginBackImage List': 'LoginBackImage列表',
+  LoginBackImage: '登录背景图',
+  LoginBackImages: '登录背景图',
 };
