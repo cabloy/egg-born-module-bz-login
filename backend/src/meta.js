@@ -1,4 +1,5 @@
 module.exports = app => {
+  const moduleInfo = app.meta.mockUtil.parseInfoFromPackage(__dirname);
   // schemas
   const schemas = require('./config/validation/schemas.js')(app);
   // static
@@ -24,7 +25,19 @@ module.exports = app => {
               },
             },
           },
-          actions: {},
+          actions: {
+            setCurrent: {
+              code: 101,
+              title: 'SetCurrent',
+              actionModule: moduleInfo.relativeName,
+              actionComponent: 'action',
+              icon: { f7: '::radio-button-unchecked' },
+              enableOnOpened: true,
+              directShowOnList: true,
+              directShowOnItem: true,
+              stage: 'formal',
+            },
+          },
           validator: 'loginBackImage',
           search: {
             validator: 'loginBackImageSearch',

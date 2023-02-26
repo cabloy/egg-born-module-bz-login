@@ -35,6 +35,8 @@ module.exports = app => {
           // { roleName: 'system', action: 'clone', scopeNames: 'authenticated' },
           { roleName: 'system', action: 'deleteBulk' },
           // { roleName: 'system', action: 'exportBulk' },
+          // custom
+          { roleName: 'system', action: 'setCurrent', scopeNames: 'authenticated' },
         ];
         await this.ctx.bean.role.addRoleRightBatch({ atomClassName: 'loginBackImage', roleRights });
       }
