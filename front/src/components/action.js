@@ -12,7 +12,9 @@ export default {
   ],
   methods: {
     async onAction() {
-      if (this.action.name === 'setCurrent') {
+      const action = this.action;
+      const actionName = action.actionName || action.name;
+      if (actionName === 'setCurrent') {
         return await this._onActionSetCurrent();
       }
     },
