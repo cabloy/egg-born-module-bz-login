@@ -54,14 +54,7 @@ module.exports = app => {
       },
     },
     validation: {
-      validators: {
-        loginBackImage: {
-          schemas: 'loginBackImage',
-        },
-        loginBackImageSearch: {
-          schemas: 'loginBackImageSearch',
-        },
-      },
+      validators: {},
       keywords: {},
       schemas,
     },
