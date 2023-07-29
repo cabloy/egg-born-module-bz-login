@@ -11,8 +11,8 @@ module.exports = app => {
                 title: 'Atom Name',
                 align: 'left',
                 component: {
-                  module: 'a-baselayout',
-                  name: 'listLayoutTableCellAtomName',
+                  module: 'a-baserender',
+                  name: 'renderTableCellAtomName',
                 },
               },
               {
@@ -78,7 +78,7 @@ module.exports = app => {
   const layout = {
     atomName: 'LoginBackImage',
     atomStaticKey: 'layoutAtomListLoginBackImage',
-    atomRevision: 3,
+    atomRevision: 4,
     description: '',
     layoutTypeCode: 3,
     content: JSON.stringify(content),
