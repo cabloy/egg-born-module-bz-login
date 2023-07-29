@@ -22,12 +22,10 @@ module.exports = app => {
                 component: {
                   module: 'a-baserender',
                   name: 'renderTableCellImage',
-                  options: {
-                    props: {
-                      size: {
-                        height: 36,
-                      },
-                    },
+                },
+                params: {
+                  size: {
+                    height: 36,
                   },
                 },
               },
@@ -78,7 +76,7 @@ module.exports = app => {
   const layout = {
     atomName: 'LoginBackImage',
     atomStaticKey: 'layoutAtomListLoginBackImage',
-    atomRevision: 4,
+    atomRevision: 5,
     description: '',
     layoutTypeCode: 3,
     content: JSON.stringify(content),
