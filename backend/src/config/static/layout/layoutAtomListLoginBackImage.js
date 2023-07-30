@@ -16,10 +16,7 @@ module.exports = app => {
                 dataIndex: 'backImage',
                 title: 'BackImage',
                 align: 'center',
-                component: {
-                  module: 'a-baserender',
-                  name: 'renderTableCellImage',
-                },
+                renderType: 'image',
                 params: {
                   size: {
                     height: 36,
@@ -39,10 +36,7 @@ module.exports = app => {
                 dataIndex: 'userIdCreated',
                 title: 'Creator',
                 align: 'left',
-                component: {
-                  module: 'a-baserender',
-                  name: 'renderTableCellUserName',
-                },
+                renderType: 'userName',
               },
               {
                 dataIndex: 'atomCreatedAt',
