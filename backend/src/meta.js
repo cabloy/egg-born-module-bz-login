@@ -32,7 +32,7 @@ module.exports = app => {
               actionModule: moduleInfo.relativeName,
               actionComponent: 'action',
               icon: { f7: '::radio-button-unchecked' },
-              enableOnOpened: true,
+              enableOnOpened: null,
               directShowOnList: true,
               directShowOnItem: true,
               stage: 'formal',
