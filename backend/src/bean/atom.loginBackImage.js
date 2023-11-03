@@ -1,14 +1,19 @@
-module.exports = app => {
-  class Atom extends app.meta.AtomBase {
-    async create({ atomClass, item, options, user }) {
+module.exports = ctx => {
+  const moduleInfo = ctx.app.meta.mockUtil.parseInfoFromPackage(__dirname);
+  class Atom extends ctx.app.meta.AtomBase {
+    constructor() {
+      super(ctx);
+    }
+
+    get model() {
+      return ctx.model.module(moduleInfo.relativeName).loginBackImage;
+    }
+
+    async default({ atomClass, item, options, user }) {
+      // party default
+      const data = await this.model.default();
       // super
-      const key = await super.create({ atomClass, item, options, user });
-      // add loginBackImage
-      const res = await this.ctx.model.loginBackImage.insert({
-        atomId: key.atomId,
-      });
-      // return key
-      return { atomId: key.atomId, itemId: res.insertId };
+      return await super.default({ atomClass, data, item, options, user });
     }
 
     async read({ atomClass, options, key, user }) {
@@ -30,21 +35,33 @@ module.exports = app => {
       }
     }
 
+    async create({ atomClass, item, options, user }) {
+      // super
+      const data = await super.create({ atomClass, item, options, user });
+      // add loginBackImage
+      data.itemId = await this.model.create(data);
+      // data
+      return data;
+    }
+
     async write({ atomClass, target, key, item, options, user }) {
       // check demo
-      this.ctx.bean.util.checkDemoForAtomWrite();
+      ctx.bean.util.checkDemoForAtomWrite();
       // super
-      await super.write({ atomClass, target, key, item, options, user });
+      const data = await super.write({ atomClass, target, key, item, options, user });
       // update loginBackImage
-      const data = await this.ctx.model.loginBackImage.prepareData(item);
-      await this.ctx.model.loginBackImage.update(data);
+      if (key.atomId !== 0) {
+        await this.model.write(data);
+      }
+      // data
+      return data;
     }
 
     async delete({ atomClass, key, options, user }) {
       // super
       await super.delete({ atomClass, key, options, user });
       // delete loginBackImage
-      await this.ctx.model.loginBackImage.delete({
+      await this.model.delete({
         id: key.itemId,
       });
     }
@@ -56,7 +73,7 @@ module.exports = app => {
       if (atom.atomStage !== 1) return res;
       if (action !== 101) return res;
       // setCurrent
-      const item = await this.ctx.model.loginBackImage.get({ id: atom.itemId });
+      const item = await this.model.get({ id: atom.itemId });
       if (action === 101 && item.isCurrent === 0) return res;
       return null;
     }
