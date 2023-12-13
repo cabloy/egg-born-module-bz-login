@@ -1,5 +1,5 @@
 module.exports = app => {
-  const moduleInfo = app.meta.mockUtil.parseInfoFromPackage(__dirname);
+  const moduleInfo = module.info;
   // schemas
   const schemas = require('./meta/validation/schemas.js')(app);
   // static
