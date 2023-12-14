@@ -10,7 +10,6 @@ module.exports = app => {
     },
     // atom
     'atom.loginBackImage': {
-      mode: 'ctx',
       bean: atomLoginBackImage,
     },
   };
