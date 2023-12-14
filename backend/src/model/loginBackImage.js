@@ -1,8 +1,5 @@
-module.exports = app => {
-  class LoginBackImage extends app.meta.Model {
-    constructor(ctx) {
-      super(ctx, { table: 'bzLoginBackImage', options: { disableDeleted: false } });
-    }
+module.exports = class LoginBackImage extends module.meta.class.Model {
+  constructor() {
+    super({ table: 'bzLoginBackImage', options: { disableDeleted: false } });
   }
-  return LoginBackImage;
 };
