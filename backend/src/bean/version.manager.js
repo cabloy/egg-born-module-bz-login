@@ -1,9 +1,8 @@
-module.exports = app => {
-  class Version extends app.meta.BeanBase {
-    async update(options) {
-      if (options.version === 1) {
-        // create table: bzLoginBackImage
-        const sql = `
+module.exports = class Version {
+  async update(options) {
+    if (options.version === 1) {
+      // create table: bzLoginBackImage
+      const sql = `
           CREATE TABLE bzLoginBackImage (
             id int(11) NOT NULL AUTO_INCREMENT,
             createdAt timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -16,34 +15,31 @@ module.exports = app => {
             PRIMARY KEY (id)
           )
         `;
-        await this.ctx.model.query(sql);
-      }
+      await this.ctx.model.query(sql);
     }
-
-    async init(options) {
-      if (options.version === 1) {
-        // add role rights
-        const roleRights = [
-          { roleName: 'system', action: 'create' },
-          { roleName: 'system', action: 'read', scopeNames: 0 },
-          { roleName: 'system', action: 'read', scopeNames: 'authenticated' },
-          { roleName: 'system', action: 'write', scopeNames: 0 },
-          { roleName: 'system', action: 'write', scopeNames: 'authenticated' },
-          { roleName: 'system', action: 'delete', scopeNames: 0 },
-          { roleName: 'system', action: 'delete', scopeNames: 'authenticated' },
-          // { roleName: 'system', action: 'clone', scopeNames: 0 },
-          // { roleName: 'system', action: 'clone', scopeNames: 'authenticated' },
-          { roleName: 'system', action: 'deleteBulk' },
-          // { roleName: 'system', action: 'exportBulk' },
-          // custom
-          { roleName: 'system', action: 'setCurrent', scopeNames: 'authenticated' },
-        ];
-        await this.ctx.bean.role.addRoleRightBatch({ atomClassName: 'loginBackImage', roleRights });
-      }
-    }
-
-    async test() {}
   }
 
-  return Version;
+  async init(options) {
+    if (options.version === 1) {
+      // add role rights
+      const roleRights = [
+        { roleName: 'system', action: 'create' },
+        { roleName: 'system', action: 'read', scopeNames: 0 },
+        { roleName: 'system', action: 'read', scopeNames: 'authenticated' },
+        { roleName: 'system', action: 'write', scopeNames: 0 },
+        { roleName: 'system', action: 'write', scopeNames: 'authenticated' },
+        { roleName: 'system', action: 'delete', scopeNames: 0 },
+        { roleName: 'system', action: 'delete', scopeNames: 'authenticated' },
+        // { roleName: 'system', action: 'clone', scopeNames: 0 },
+        // { roleName: 'system', action: 'clone', scopeNames: 'authenticated' },
+        { roleName: 'system', action: 'deleteBulk' },
+        // { roleName: 'system', action: 'exportBulk' },
+        // custom
+        { roleName: 'system', action: 'setCurrent', scopeNames: 'authenticated' },
+      ];
+      await this.ctx.bean.role.addRoleRightBatch({ atomClassName: 'loginBackImage', roleRights });
+    }
+  }
+
+  async test() {}
 };
