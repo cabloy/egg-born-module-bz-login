@@ -1,9 +1,7 @@
 const loginBackImage = require('./schema/loginBackImage.js');
 
-module.exports = app => {
-  const schemas = {};
-  // loginBackImage
-  Object.assign(schemas, loginBackImage(app));
-  // ok
-  return schemas;
-};
+const schemas = {};
+// loginBackImage
+Object.assign(schemas, loginBackImage);
+// ok
+module.exports = schemas;
