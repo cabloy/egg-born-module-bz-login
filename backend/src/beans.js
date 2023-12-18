@@ -4,7 +4,6 @@ const atomLoginBackImage = require('./bean/atom.loginBackImage.js');
 module.exports = {
   // version
   'version.manager': {
-    mode: 'app',
     bean: versionManager,
   },
   // atom
