@@ -1,4 +1,8 @@
-module.exports = class BackImageController {
+import { BeanBase, Controller, Use } from '@cabloy/core';
+import { ScopeModuleBzLogin } from '../index.js';
+
+@Controller()
+export class ControllerBackImage extends BeanBase {
   async setCurrent() {
     const res = await this.ctx.service.backImage.setCurrent({
       key: this.ctx.request.body.key,
@@ -12,4 +16,4 @@ module.exports = class BackImageController {
     });
     this.ctx.success(res);
   }
-};
+}
