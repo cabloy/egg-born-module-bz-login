@@ -1,5 +1,4 @@
-module.exports = class LoginBackImage extends module.meta.class.Model {
-  constructor() {
-    super({ table: 'bzLoginBackImage', options: { disableDeleted: false } });
-  }
-};
+import { BeanModelBase, Model } from '@cabloy/core';
+
+@Model({ table: 'bzLoginBackImage', options: { disableDeleted: false } })
+export class ModelLoginBackImage extends BeanModelBase {}

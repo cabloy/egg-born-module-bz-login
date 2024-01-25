@@ -1,5 +1,7 @@
-const loginBackImage = require('./model/loginBackImage.js');
+export * from '../model/loginBackImage.js';
 
-module.exports = {
-  loginBackImage,
-};
+import { ModelLoginBackImage } from '../model/loginBackImage.js';
+
+export interface IModuleModel {
+  loginBackImage: ModelLoginBackImage;
+}
