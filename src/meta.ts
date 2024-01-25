@@ -1,5 +1,3 @@
-const moduleInfo = module.info;
-
 const schemas = require('./meta/validation/schemas.js');
 const staticLayouts = require('./meta/static/layouts.js');
 const staticResources = require('./meta/static/resources.js');
