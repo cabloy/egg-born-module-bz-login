@@ -1,2 +1,7 @@
-const backImage = require('./service/backImage.js');
-module.exports = { backImage };
+export * from '../local/backImage.js';
+
+import { LocalBackImage } from '../local/backImage.js';
+
+export interface IModuleLocal {
+  backImage: LocalBackImage;
+}

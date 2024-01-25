@@ -1,4 +1,7 @@
-module.exports = class BackImage {
+import { BeanBase, Local } from '@cabloy/core';
+
+@Local()
+export class LocalBackImage extends BeanBase {
   async setCurrent({ key, user }) {
     // get old
     let keyOld;
@@ -32,4 +35,4 @@ module.exports = class BackImage {
       isCurrent: 1,
     });
   }
-};
+}
