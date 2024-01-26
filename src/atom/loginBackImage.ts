@@ -4,7 +4,7 @@ import { BeanAtomBase } from 'cabloy-module-api-a-base';
 @Atom()
 export class AtomLoginBackImage extends BeanAtomBase {
   get model() {
-    return this.ctx.model.module(moduleInfo.relativeName).loginBackImage;
+    return this.ctx.model.module(__ThisModule__).loginBackImage;
   }
 
   async default({ atomClass, item, options, user }) {

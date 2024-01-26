@@ -25,7 +25,7 @@ const meta = {
           setCurrent: {
             code: 101,
             title: 'SetCurrent',
-            actionModule: moduleInfo.relativeName,
+            actionModule: __ThisModule__,
             actionComponent: 'action',
             icon: { f7: '::radio-button-unchecked' },
             enableOnOpened: null,
