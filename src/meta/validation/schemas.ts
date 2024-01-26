@@ -4,4 +4,4 @@ const schemas = {};
 // loginBackImage
 Object.assign(schemas, loginBackImage);
 // ok
-module.exports = schemas;
+export default schemas;

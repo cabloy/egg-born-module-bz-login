@@ -16,4 +16,4 @@ const resources = [
     resourceRoles: 'template.system',
   },
 ];
-module.exports = resources;
+export default resources;

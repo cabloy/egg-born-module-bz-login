@@ -34,4 +34,4 @@ schemas.loginBackImageSearch = {
   type: 'object',
   properties: {},
 };
-module.exports = schemas;
+export default schemas;

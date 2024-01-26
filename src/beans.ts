@@ -1,7 +1,7 @@
 const versionManager = require('./bean/version.manager.js');
 const atomLoginBackImage = require('./bean/atom.loginBackImage.js');
 
-module.exports = {
+export default {
   // version
   'version.manager': {
     bean: versionManager,

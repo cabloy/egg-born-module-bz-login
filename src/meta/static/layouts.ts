@@ -4,4 +4,4 @@ const layouts = [
   //
   layoutAtomListLoginBackImage,
 ];
-module.exports = layouts;
+export default layouts;
