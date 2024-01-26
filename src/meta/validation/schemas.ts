@@ -1,4 +1,4 @@
-const loginBackImage = require('./schema/loginBackImage.js');
+import loginBackImage from './schema/loginBackImage.js';
 
 const schemas = {};
 // loginBackImage

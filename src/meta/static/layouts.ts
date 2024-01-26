@@ -1,4 +1,4 @@
-const layoutAtomListLoginBackImage = require('./layout/layoutAtomListLoginBackImage.js');
+import layoutAtomListLoginBackImage from './layout/layoutAtomListLoginBackImage.js';
 
 const layouts = [
   //

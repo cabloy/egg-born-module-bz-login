@@ -1,5 +1,5 @@
-const versionManager = require('./bean/version.manager.js');
-const atomLoginBackImage = require('./bean/atom.loginBackImage.js');
+import versionManager from './bean/version.manager.js';
+import atomLoginBackImage from './bean/atom.loginBackImage.js';
 
 export default {
   // version
