@@ -1,4 +1,4 @@
-const schemas = {};
+const schemas: any = {};
 // loginBackImage
 schemas.loginBackImage = {
   type: 'object',

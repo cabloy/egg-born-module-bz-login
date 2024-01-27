@@ -1,6 +1,6 @@
 import loginBackImage from './schema/loginBackImage.js';
 
-const schemas = {};
+const schemas: any = {};
 // loginBackImage
 Object.assign(schemas, loginBackImage);
 // ok
