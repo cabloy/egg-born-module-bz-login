@@ -1,11 +1,9 @@
 import { BeanBase, Controller, Use } from '@cabloy/core';
-import { ScopeModuleBzLogin } from '../index.js';
+import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../resource/this.js';
 
 @Controller()
-export class ControllerBackImage extends BeanBase {
-  @Use()
-  scope: ScopeModuleBzLogin;
-
+export class ControllerBackImage extends BeanBase<ScopeModule> {
   async setCurrent() {
     const res = await this.scope.local.backImage.setCurrent({
       key: this.ctx.request.body.key,
