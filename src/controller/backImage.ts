@@ -1,5 +1,4 @@
-import { BeanBase, Controller, Use } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
+import { BeanBase, Controller } from '@cabloy/core';
 import { ScopeModule } from '../resource/this.js';
 
 @Controller()
