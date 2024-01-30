@@ -2,7 +2,7 @@ import { BeanBase, Local } from '@cabloy/core';
 
 @Local()
 export class LocalBackImage extends BeanBase {
-  async setCurrent({ key, user }: any) {
+  async setCurrent({ key, user: _user }: any) {
     // get old
     let keyOld;
     const itemOld = await this.ctx.model.loginBackImage.get({
@@ -30,7 +30,7 @@ export class LocalBackImage extends BeanBase {
     return { key, keyOld };
   }
 
-  async getCurrent({ user }: any) {
+  async getCurrent({ user: _user }: any) {
     return await this.ctx.model.loginBackImage.get({
       isCurrent: 1,
     });
