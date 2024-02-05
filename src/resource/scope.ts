@@ -20,4 +20,8 @@ declare module '@cabloy/core' {
   export interface IBeanScopeRecord {
     'bz-login': ScopeModuleBzLogin;
   }
+
+  export interface IBeanScopeConfig {
+    'bz-login': ReturnType<typeof config>;
+  }
 }
