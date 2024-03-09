@@ -5,20 +5,12 @@ export class VersionManager extends BeanBase {
   async update(options) {
     if (options.version === 1) {
       // create table: bzLoginBackImage
-      const sql = `
-          CREATE TABLE bzLoginBackImage (
-            id int(11) NOT NULL AUTO_INCREMENT,
-            createdAt timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            updatedAt timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-            deleted int(11) DEFAULT '0',
-            iid int(11) DEFAULT '0',
-            atomId int(11) DEFAULT '0',
-            backImage varchar(255) DEFAULT NULL,
-            isCurrent int(11) DEFAULT '0',
-            PRIMARY KEY (id)
-          )
-        `;
-      await this.ctx.model.query(sql);
+      await this.bean.model.createTable('bzLoginBackImage', function (table) {
+        table.basicFields();
+        table.atomId();
+        table.string('backImage', 255);
+        table.int0('isCurrent');
+      });
     }
   }
 
