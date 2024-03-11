@@ -1,11 +1,11 @@
-import { __ThisModule__ } from '../resource/this.js';
+import { ScopeModule } from '../resource/this.js';
 import { Atom } from '@cabloy/core';
 import { BeanAtomBase } from 'cabloy-module-api-a-base';
 
 @Atom()
-export class AtomLoginBackImage extends BeanAtomBase {
+export class AtomLoginBackImage extends BeanAtomBase<ScopeModule> {
   get model() {
-    return this.ctx.model.module(__ThisModule__).loginBackImage;
+    return this.scope.model.loginBackImage;
   }
 
   async default({ atomClass, item, options, user }: any) {
@@ -73,6 +73,7 @@ export class AtomLoginBackImage extends BeanAtomBase {
     if (action !== 101) return res;
     // setCurrent
     const item = await this.model.get({ id: atom.itemId });
+    if (!item) return null;
     if (action === 101 && item.isCurrent === 0) return res;
     return null;
   }
