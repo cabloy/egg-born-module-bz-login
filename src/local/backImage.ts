@@ -1,11 +1,12 @@
 import { BeanBase, Local } from '@cabloy/core';
+import { ScopeModule } from '../resource/this.js';
 
 @Local()
-export class LocalBackImage extends BeanBase {
+export class LocalBackImage extends BeanBase<ScopeModule> {
   async setCurrent({ key, user: _user }: any) {
     // get old
     let keyOld;
-    const itemOld = await this.bean.model.loginBackImage.get({
+    const itemOld = await this.scope.model.loginBackImage.get({
       isCurrent: 1,
     });
     if (itemOld) {
@@ -16,12 +17,12 @@ export class LocalBackImage extends BeanBase {
       return null;
     }
     // new
-    await this.bean.model.loginBackImage.update({
+    await this.scope.model.loginBackImage.update({
       id: key.itemId,
       isCurrent: 1,
     });
     if (keyOld) {
-      await this.bean.model.loginBackImage.update({
+      await this.scope.model.loginBackImage.update({
         id: keyOld.itemId,
         isCurrent: 0,
       });
@@ -31,7 +32,7 @@ export class LocalBackImage extends BeanBase {
   }
 
   async getCurrent({ user: _user }: any) {
-    return await this.bean.model.loginBackImage.get({
+    return await this.scope.model.loginBackImage.get({
       isCurrent: 1,
     });
   }
